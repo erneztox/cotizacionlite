@@ -106,5 +106,4 @@ function calcular_totales($items) {
         'valor_iva' => $valor_iva,
         'total' => $total
     ];
-}
-?> 
+} 
