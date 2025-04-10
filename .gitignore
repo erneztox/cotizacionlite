@@ -1,0 +1,28 @@
+# Archivos de la base de datos
+*.sqlite
+*.sqlite3
+
+# Archivos de entorno
+.env
+.env.local
+
+# Archivos de IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de dependencias
+vendor/
+node_modules/
+
+# Archivos de logs
+*.log
+
+# Archivos temporales
+*.tmp
+*.temp 
