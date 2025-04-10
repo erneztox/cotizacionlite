@@ -25,4 +25,9 @@ node_modules/
 
 # Archivos temporales
 *.tmp
-*.temp 
+*.temp
+
+# Archivos de Replit
+.replit
+replit.nix
+.replit/ 
