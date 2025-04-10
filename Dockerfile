@@ -4,6 +4,8 @@ FROM php:8.2-apache
 RUN apt-get update && apt-get install -y \
     sqlite3 \
     libsqlite3-dev \
+    git \
+    unzip \
     && docker-php-ext-install pdo_sqlite
 
 # Instalar Composer
@@ -15,11 +17,11 @@ RUN a2enmod rewrite
 # Crear directorio de trabajo
 WORKDIR /var/www/html
 
-# Copiar solo los archivos necesarios para composer
+# Copiar archivos de configuración
 COPY composer.json composer.lock ./
 
 # Instalar dependencias de Composer
-RUN composer install --no-scripts --no-autoloader
+RUN composer install --no-scripts --no-autoloader --no-interaction
 
 # Copiar el resto de los archivos
 COPY . .
