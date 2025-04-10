@@ -11,11 +11,21 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 # Configurar Apache
 RUN a2enmod rewrite
-COPY . /var/www/html/
+
+# Crear directorio de trabajo
 WORKDIR /var/www/html
 
+# Copiar solo los archivos necesarios para composer
+COPY composer.json composer.lock ./
+
 # Instalar dependencias de Composer
-RUN composer install
+RUN composer install --no-scripts --no-autoloader
+
+# Copiar el resto de los archivos
+COPY . .
+
+# Generar autoloader
+RUN composer dump-autoload --optimize
 
 # Configurar permisos
 RUN chown -R www-data:www-data /var/www/html
